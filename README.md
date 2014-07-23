@@ -43,7 +43,13 @@ Usage
  linux kernel version of your RPi.
  
 
+LICENCE
+=======
 
+ The LICENCE doesn't apply for the files on the v3.12.22+ folder which come 
+ from the Raspberry Pi kernel distribution at:
+ 
+ https://github.com/raspberrypi/linux
 
 
 
