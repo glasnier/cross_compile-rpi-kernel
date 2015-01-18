@@ -25,6 +25,8 @@ fi
 
 #### Application
 
+PLATFORM=`uname -s` 
+
 echo ""
 echo "#########################################################################"
 echo "                     GET Raspberry Pi kernel information                 "
@@ -33,7 +35,16 @@ echo ""
 
 LINUXVERSION=$1
 
-FWHASH=`zcat changelog.Debian.gz | grep -m 1 'as of' | awk '{print $NF}'`
+if [ ${PLATFORM} = "Darwin" ]
+then
+    FWHASH=`gunzip -c changelog.Debian.gz | grep -m 1 'as of' | awk '{print $NF}'`
+elif [ ${PLATFORM} = "Linux" ]
+then
+    FWHASH=`zcat changelog.Debian.gz | grep -m 1 'as of' | awk '{print $NF}'`
+else
+    echo "Sorry, the platform ${PLATFORM} is not supported !!!"    
+    exit -1
+fi
 
 echo "Firmware Hashcode: fwhash = $FWHASH"
 
