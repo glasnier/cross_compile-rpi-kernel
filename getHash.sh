@@ -37,15 +37,16 @@ LINUXVERSION=$1
 
 if [ ${PLATFORM} = "Darwin" ]
 then
-    FWHASH=`gunzip -c ${1}/changelog.Debian.gz | grep -m 1 'as of' | awk '{print $NF}'`
+    CMD="gunzip -c"
 elif [ ${PLATFORM} = "Linux" ]
 then
-    FWHASH=`zcat ${1}/changelog.Debian.gz | grep -m 1 'as of' | awk '{print $NF}'`
+    CMD="zcat"
 else
     echo "Sorry, the platform ${PLATFORM} is not supported !!!"    
     exit -1
 fi
 
+FWHASH=`${CMD} ${1}/changelog.Debian.gz | grep -m 1 'as of' | awk '{print $NF}'`
 echo "Firmware Hashcode: fwhash = $FWHASH"
 
 LINUXHASH=`wget -qO- https://raw.github.com/raspberrypi/firmware/$FWHASH/extra/git_hash`
@@ -59,7 +60,7 @@ echo "  $ cd ../rpi-linux"
 echo "  $ git checkout $LINUXHASH -b v$LINUXVERSION"
 echo "  $ make mrproper"
 echo "  $ mkdir build-linux-rpi-$LINUXVERSION"
-echo "  $ zcat ../cross_compile-rpi-kernel/${1}/config.gz >\
+echo "  $ ${CMD} ../cross_compile-rpi-kernel/${1}/config.gz >\
  build-linux-rpi-$LINUXVERSION/.config"
 echo "  $ make ARCH=arm CROSS_COMPILE=... O=build-linux-rpi-$LINUXVERSION\
  oldconfig"
