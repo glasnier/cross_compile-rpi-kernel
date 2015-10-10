@@ -28,6 +28,9 @@ Requirements
 
   /proc/config.gz
 
+NOTE: with new rpi kernels and distribution, if the file /proc/config.gz 
+      is missing, try:
+         $ sudo modprobe configs
 
 Usage
 =====
