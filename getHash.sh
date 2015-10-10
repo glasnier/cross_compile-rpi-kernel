@@ -37,10 +37,10 @@ LINUXVERSION=$1
 
 if [ ${PLATFORM} = "Darwin" ]
 then
-    FWHASH=`gunzip -c changelog.Debian.gz | grep -m 1 'as of' | awk '{print $NF}'`
+    FWHASH=`gunzip -c ${1}/changelog.Debian.gz | grep -m 1 'as of' | awk '{print $NF}'`
 elif [ ${PLATFORM} = "Linux" ]
 then
-    FWHASH=`zcat changelog.Debian.gz | grep -m 1 'as of' | awk '{print $NF}'`
+    FWHASH=`zcat ${1}/changelog.Debian.gz | grep -m 1 'as of' | awk '{print $NF}'`
 else
     echo "Sorry, the platform ${PLATFORM} is not supported !!!"    
     exit -1
@@ -58,9 +58,14 @@ echo "You can now issue:"
 echo "  $ cd ../rpi-linux"
 echo "  $ git checkout $LINUXHASH -b v$LINUXVERSION"
 echo "  $ make mrproper"
-echo "  $ zcat ../cross_compile-rpi-kernel/config.gz > ./.config"
-echo "  $ make ARCH=arm menuconfig"
-echo "  $ make ARCH=arm CROSS_COMPILE=..."
+echo "  $ mkdir build-linux-rpi-$LINUXVERSION"
+echo "  $ zcat ../cross_compile-rpi-kernel/config.gz >\
+ build-linux-rpi-$LINUXVERSION/.config"
+echo "  $ make ARCH=arm CROSS_COMPILE=... O=build-linux-rpi-$LINUXVERSION\
+ oldconfig"
+echo "  $ make ARCH=arm CROSS_COMPILE=... O=build-linux-rpi-$LINUXVERSION\
+ menuconfig"
+echo "  $ make ARCH=arm CROSS_COMPILE=... O=build-linux-rpi-$LINUXVERSION"
 echo ""
 echo "#########################################################################"
 echo ""
