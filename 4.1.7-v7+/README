@@ -1,0 +1,14 @@
+Author: Gilles Lasnier <gilles.lasnier@gmail.com>
+
+
+Description
+===========
+
+ Information about the Raspbian PI kernel:
+ - release: 2015-09-24-raspbian-jessie
+ - kernel version: 4.1.7-v7+
+ - "$ uname -r" result:
+
+   "Linux rpi2 4.1.7-v7+ #817 SMP PREEMPT Sat Sep 19 15:32:00 BST 2015 armv7l\
+ GNU/Linux"
+
