@@ -59,7 +59,7 @@ echo "  $ cd ../rpi-linux"
 echo "  $ git checkout $LINUXHASH -b v$LINUXVERSION"
 echo "  $ make mrproper"
 echo "  $ mkdir build-linux-rpi-$LINUXVERSION"
-echo "  $ zcat ../cross_compile-rpi-kernel/config.gz >\
+echo "  $ zcat ../cross_compile-rpi-kernel/${1}/config.gz >\
  build-linux-rpi-$LINUXVERSION/.config"
 echo "  $ make ARCH=arm CROSS_COMPILE=... O=build-linux-rpi-$LINUXVERSION\
  oldconfig"
