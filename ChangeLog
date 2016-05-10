@@ -1,0 +1,18 @@
+* e951326 2016-03-06 | fix typo (HEAD, origin/master, origin/HEAD, master) [Gill
+* 2572b63 2016-03-06 | add rpi linux kernel v3.12.35+ support (for raspbian) [Gi
+* efb9c83 2015-10-10 | fix config.gz extraction command which is platform depend
+* 7c8fdba 2015-10-10 | fix folder path to get config.gz [Gilles Lasnier]
+* 519152d 2015-10-10 | remove unused folder [Gilles Lasnier]
+* 68ed2bf 2015-10-10 | fix kernel version name template [Gilles Lasnier]
+* 11ad599 2015-10-10 | do not copy the script to the folder anymore, clean linux
+* 872f0df 2015-10-10 | add note to get config.gz from new rpi kernel [Gilles Las
+* 125540c 2015-10-10 | add rpi kernel 4.1.7-v7+ support [Gilles Lasnier]
+* 93d2718 2015-01-18 | fix zcat bug on mac os x platform [Gilles Lasnier]
+* 8969899 2014-07-24 | Rename LICENCE to LICENSE [Gilles Lasnier]
+* 4bac7bf 2014-07-23 | licence application [Gilles Lasnier]
+* c68982e 2014-07-23 | reorganize folder [Gilles Lasnier]
+* 3d7039f 2014-07-23 | add basic GPLv3 licence [Gilles Lasnier]
+*   3020ea8 2014-07-23 | Merge branch 'master' of https://github.com/glasnier/cr
+|\  
+| * bcd796c 2014-07-23 | Initial import [Gilles Lasnier]
+* 12f819c 2014-07-23 | initial import [Gilles Lasnier]
