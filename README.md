@@ -31,17 +31,26 @@ Requirements
 
 NOTE: with new rpi kernels and distribution, if the file /proc/config.gz
       is missing, try:
-         $ sudo modprobe configs
-
+         pi@raspberrypi:~ $ sudo modprobe configs
+         pi@raspberrypi:~ $ zcat /proc/config.gz > raspios_kernel_$(uname -r).config
+         pi@raspberrypi:~ $ head raspios_kernel_5.10.17-v7+.config 
+         #
+         # Automatically generated file; DO NOT EDIT.
+         # Linux/arm 5.10.17 Kernel Configuration
+         #
+  
 Usage
 =====
 
- Put the two files and the "getHash.sh" bash script in the same folder and
- run the script with the linux version as argument.
+ Put the two files in a folder named from the kernel version, at the root racine of
+ the "getHash.sh" bash script and run the script with the linux version as argument.
 
  Example:
+   $ mkdir 5.10.17-v7+
+   $ cp .../config.gz 5.10.17-v7+/
+   $ cp .../changelog.Debian.gz 5.10.17-v7+/
    $ chmod a+x getHash.sh
-   $ ./getHash.sh 3.12.22+
+   $ ./getHash.sh 5.10.17-v7+
 
  Then follow the instruction to create the git branch corresponding to the
  Linux kernel version of your RPi.
@@ -54,6 +63,3 @@ LICENSE
  from the Raspbian Raspberry Pi kernel and firmware distribution at:
 
  https://github.com/raspberrypi/linux
-
-
-
