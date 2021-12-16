@@ -23,21 +23,21 @@ Requirements
  linux kernel.
 
  From your RPi, using scp or others, retrieve the files:
-  /usr/share/doc/raspberrypi-bootloader/changelog.Debian.gz
-
- , and
-
-  /proc/config.gz
+ 
+ - /usr/share/doc/raspberrypi-bootloader/changelog.Debian.gz
+ - /proc/config.gz
 
 NOTE: with new rpi kernels and distribution, if the file /proc/config.gz
       is missing, try:
-         pi@raspberrypi:~ $ sudo modprobe configs
-         pi@raspberrypi:~ $ zcat /proc/config.gz > raspios_kernel_$(uname -r).config
-         pi@raspberrypi:~ $ head raspios_kernel_5.10.17-v7+.config 
-         #
-         # Automatically generated file; DO NOT EDIT.
-         # Linux/arm 5.10.17 Kernel Configuration
-         #
+```  
+  pi@raspberrypi:~ $ sudo modprobe configs
+  pi@raspberrypi:~ $ zcat /proc/config.gz > raspios_kernel_$(uname -r).config
+  pi@raspberrypi:~ $ head raspios_kernel_5.10.17-v7+.config 
+  #
+  # Automatically generated file; DO NOT EDIT.
+  # Linux/arm 5.10.17 Kernel Configuration
+  #
+```
   
 Usage
 =====
@@ -46,11 +46,13 @@ Usage
  the "getHash.sh" bash script and run the script with the linux version as argument.
 
  Example:
-   $ mkdir 5.10.17-v7+
-   $ cp .../config.gz 5.10.17-v7+/
-   $ cp .../changelog.Debian.gz 5.10.17-v7+/
-   $ chmod a+x getHash.sh
-   $ ./getHash.sh 5.10.17-v7+
+```
+  $ mkdir 5.10.17-v7+
+  $ cp .../config.gz 5.10.17-v7+/
+  $ cp .../changelog.Debian.gz 5.10.17-v7+/
+  $ chmod a+x getHash.sh
+  $ ./getHash.sh 5.10.17-v7+
+```
 
  Then follow the instruction to create the git branch corresponding to the
  Linux kernel version of your RPi.
